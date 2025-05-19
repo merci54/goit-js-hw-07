@@ -30,6 +30,11 @@ button {
   border: none;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 #categories {
   display: flex;
   flex-direction: column;
@@ -69,4 +74,18 @@ button {
 
 .item ul>li:not(:last-child){
   margin-bottom: 8px;
+}
+
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+
+}
+
+
+.gallery-item {
+  max-width: 360px;
 }
