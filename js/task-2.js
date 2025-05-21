@@ -27,32 +27,49 @@ const images = [
 
 const galleryList = document.querySelector('.gallery');
 
-const galleryMaker = arr => {
-  return arr.map(el => {
-    const galleryItem = document.createElement('li');
-    const galleryImg = document.createElement('img');
 
-    galleryItem.classList.add('gallery-item');
-    galleryImg.classList.add('gallery-img');
-
-    galleryImg.src = el.url;
-    galleryImg.alt = el.alt;
-
-    galleryItem.append(galleryImg);
-    galleryList.append(galleryItem);
-
-  })
-}
-
-galleryMaker(images);
-
-    
+//! Variant 1
 
 // const galleryMaker = arr => {
 //   return arr.map(el => {
-//     return `<li class="gallery-item"><img src="${el.url}" class="gallery-img" alt="${el.alt}" </li>`
-//   }).join("")
+//     const listItem = document.createElement('li');
+//     listItem.classList.add('gallery-item');
+    
+//     const listImage = document.createElement('img');
+//     listImage.src = el.url;
+//     listImage.alt = el.alt;
+//     listImage.classList.add('gallery-image');
+
+//     listItem.append(listImage);
+
+//     return listItem
+//   })
 // }
 
-// console.log(galleryMaker(images));
-// galleryList.insertAdjacentHTML("afterbegin", galleryMaker(images));
+// galleryList.append(...galleryMaker(images));
+
+
+//!Variant 2
+
+// const galleryMaker = arr => {
+//   return arr.map(el => {
+//     return `<li class="gallery-item"><img class="gallery-image" alt="${el.alt}" src="${el.url}"/> </li>`
+//   }).join("")
+// }
+// galleryList.innerHTML = galleryMaker(images);
+
+
+//!Variant 3
+
+const galleryMaker = arr => {
+  return arr.map(el => {
+    return `<li class="gallery-item"><img class="gallery-image" alt="${el.alt}" src="${el.url}"/> </li>`
+  }).join("")
+}
+galleryList.insertAdjacentHTML('afterbegin', galleryMaker(images));
+
+
+
+
+
+
